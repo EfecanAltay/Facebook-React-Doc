@@ -6,7 +6,7 @@ export class Topbar extends React.Component {
     render() {
         return (
             <Navbar className="topbar">
-                <Navbar.Group align={Alignment.LEFT}>
+                <Navbar.Group align={Alignment.RIGHT}>
                     <Navbar.Heading >Reactive - Learning ReactJS Platform</Navbar.Heading>
                 </Navbar.Group>
             </Navbar>
