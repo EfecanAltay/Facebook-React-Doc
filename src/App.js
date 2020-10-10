@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
-import { Button } from "@blueprintjs/core";
- 
+import Sidebar from './sections/sidebar.tsx';
+import Topbar from './sections/topbar';
+
 function App() {
   return (
     <div className="App">
-      <Button intent="success" text="Hello World" />
+      <Topbar></Topbar>
+      <Sidebar className="sidebar" />
     </div>
   );
-
 }
 
 export default App;
