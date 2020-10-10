@@ -1,17 +1,21 @@
 import React from 'react';
-import './sidebar.css';
-import { ITreeNode, Tooltip, Position, Classes, Icon, Intent, Tree} from "@blueprintjs/core";
+import '../styles/sidebar.css';
+import { ITreeNode, Tooltip, Position, Classes, Icon, Intent, Tree,Callout} from "@blueprintjs/core";
 
 export interface ITreeExampleState {
     nodes: ITreeNode[];
 }
 
-export class Topbar extends React.Component{
+export class SideBar extends React.Component{
 
     public state: ITreeExampleState = { nodes: INITIAL_STATE };
     render() {
         return (
             <div className="sidebar">
+                <Callout className="header" title="Reactive" >
+                    <img className="icon" src="../logo192.png"></img>
+                    <p>Native Learning Platform</p>
+                </Callout>
                 <Tree
                 contents={this.state.nodes}
                 onNodeClick={this.handleNodeClick}
@@ -129,4 +133,4 @@ const INITIAL_STATE: ITreeNode[] = [
 ];
 /* tslint:enable:object-literal-sort-keys */
 
-export default Topbar;
+export default SideBar;

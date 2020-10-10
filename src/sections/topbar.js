@@ -1,10 +1,11 @@
 import React from 'react';
-import { Navbar, Button, Alignment} from "@blueprintjs/core";
+import { Navbar, Alignment} from "@blueprintjs/core";
+import "../styles/topbar.css";
 
-export class Sidebar extends React.Component {
+export class Topbar extends React.Component {
     render() {
         return (
-            <Navbar>
+            <Navbar className="topbar">
                 <Navbar.Group align={Alignment.LEFT}>
                     <Navbar.Heading >Reactive - Learning ReactJS Platform</Navbar.Heading>
                 </Navbar.Group>
@@ -13,4 +14,4 @@ export class Sidebar extends React.Component {
     }
 }
 
-export default Sidebar;
+export default Topbar;
