@@ -1,14 +1,19 @@
 import React from 'react';
 import '../styles/sidebar.css';
-import { ITreeNode, Tooltip, Position, Classes, Icon, Intent, Tree,Callout} from "@blueprintjs/core";
+import { ITreeNode, Tooltip, Position, Classes, Icon, Intent, Tree, Callout } from "@blueprintjs/core";
 
 export interface ITreeExampleState {
     nodes: ITreeNode[];
 }
 
-export class SideBar extends React.Component{
-
+export class SideBar extends React.Component {
     public state: ITreeExampleState = { nodes: INITIAL_STATE };
+    public CurrentSelectedID: number;
+
+    public props: {
+        OnSelected: (a: number) => void;
+    }
+    
     render() {
         return (
             <div className="sidebar">
@@ -17,16 +22,16 @@ export class SideBar extends React.Component{
                     <p>Native Learning Platform</p>
                 </Callout>
                 <Tree
-                contents={this.state.nodes}
-                onNodeClick={this.handleNodeClick}
-                onNodeCollapse={this.handleNodeCollapse}
-                onNodeExpand={this.handleNodeExpand}
-                className={Classes.ELEVATION_0}
+                    contents={this.state.nodes}
+                    onNodeClick={this.handleNodeClick}
+                    onNodeCollapse={this.handleNodeCollapse}
+                    onNodeExpand={this.handleNodeExpand}
+                    className={Classes.ELEVATION_0}
                 />
             </div>
         );
     }
-    
+
     private handleNodeClick = (nodeData: ITreeNode, _nodePath: number[], e: React.MouseEvent<HTMLElement>) => {
         const originallySelected = nodeData.isSelected;
         if (!e.shiftKey) {
@@ -34,8 +39,10 @@ export class SideBar extends React.Component{
         }
         nodeData.isSelected = originallySelected == null ? true : !originallySelected;
         this.setState(this.state);
+        if (this.props.OnSelected != null)
+            this.props.OnSelected(+nodeData.id);
     };
-    
+
     private handleNodeCollapse = (nodeData: ITreeNode) => {
         nodeData.isExpanded = false;
         this.setState(this.state);
@@ -45,7 +52,7 @@ export class SideBar extends React.Component{
         nodeData.isExpanded = true;
         this.setState(this.state);
     };
-    
+
     private forEachNode(nodes: ITreeNode[], callback: (node: ITreeNode) => void) {
         if (nodes == null) {
             return;
@@ -100,7 +107,7 @@ const INITIAL_STATE: ITreeNode[] = [
         ],
     },
     {
-        id: 2,
+        id: 5,
         hasCaret: true,
         icon: "folder-close",
         label: "Super secret files",
