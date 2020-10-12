@@ -10,13 +10,19 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm install & npm ci & npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_REACTIVE_476D5 }}'
-          channelId: live
-          projectId: reactive-476d5
-        env:
-          FIREBASE_CLI_PREVIEWS: hostingchannels
+      - name: Checkout Code 
+          uses: actions/checkout@v2
+      - name : Running
+          run: |
+            npm install 
+            npm ci 
+            npm run build
+      - name : Deploying
+          uses: FirebaseExtended/action-hosting-deploy@v0
+          with:
+            repoToken: '${{ secrets.GITHUB_TOKEN }}'
+            firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_REACTIVE_476D5 }}'
+            channelId: live
+            projectId: reactive-476d5
+          env:
+            FIREBASE_CLI_PREVIEWS: hostingchannels
