@@ -1,16 +1,20 @@
 import React from 'react';
+import CodeEditor from '../Components/CodeEditor';
 import BasePage from './BasePage';
 
 
-export class WelcomePage extends BasePage {
+export class GetStartedPage extends BasePage {
     constructor() {
-        super(0,"Get Started",{});
+        super(1,"Get Started",{});
     }
     render(){
         return (
-            <div>Welcome Page</div>
+            <div>
+                <h2>Get Started Page</h2>
+                <CodeEditor />
+            </div>
         );
     }
 }
 
-export default WelcomePage;
+export default GetStartedPage;

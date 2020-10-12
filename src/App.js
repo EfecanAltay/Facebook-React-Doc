@@ -5,6 +5,7 @@ import Topbar from './sections/topbar';
 import { PageController } from './Controllers/PageController';
 import WelcomePage from './pages/WelcomePage';
 import { Button } from '@blueprintjs/core';
+import GetStartedPage from './pages/GetStartedPage';
 
 export class App extends React.Component{
   
@@ -17,6 +18,7 @@ export class App extends React.Component{
     super(prop);
     this.state.pageController = new PageController(null);
     this.state.pageController.AddPage(new WelcomePage());
+    this.state.pageController.AddPage(new GetStartedPage());
     this.state.pageController.SelectPage(0);
   }
 

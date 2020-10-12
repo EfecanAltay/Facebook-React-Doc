@@ -19,13 +19,11 @@ export class PageController extends React.Component {
 
     AddPage(page: BasePage) {
         this.state.PageList.push(page);
-
     }
 
     SelectPage(pageIndex: number) {
         this.state.CurrentPage = this.state.PageList[pageIndex];
         this.setState(this.state);
-        this.forceUpdate();
     }
 
     render() {
