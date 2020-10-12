@@ -4,8 +4,8 @@ import BasePage from './BasePage';
 
 
 export class NoPage extends BasePage {
-    constructor() {
-        super(0,"No Page",{});
+    constructor(props : {}) {
+        super(0,"No Page",props);
     }
     render(){
         return (

@@ -13,15 +13,24 @@ export class SideBar extends React.Component {
     public props: {
         OnSelected: (a: number) => void;
     }
-    
+    wrapper : any;
+    /**
+     *
+     */
+    constructor( props :{}) {
+        super(props);
+        this.wrapper = React.createRef();
+    }
     render() {
         return (
+            <React.StrictMode>
             <div className="sidebar">
                 <Callout className="header" title="Reactive" >
                     <img className="icon" src="../logo192.png" alt="reactive_logo"></img>
                     <p>Native Learning Platform</p>
                 </Callout>
                 <Tree
+                    ref={this.wrapper}
                     contents={this.state.nodes}
                     onNodeClick={this.handleNodeClick}
                     onNodeCollapse={this.handleNodeCollapse}
@@ -29,6 +38,7 @@ export class SideBar extends React.Component {
                     className={Classes.ELEVATION_0}
                 />
             </div>
+                </React.StrictMode>
         );
     }
 

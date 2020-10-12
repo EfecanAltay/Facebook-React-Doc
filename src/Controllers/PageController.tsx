@@ -23,7 +23,6 @@ export class PageController extends React.Component {
 
     SelectPage(pageIndex: number) {
         this.CurrentPage = this.state.PageList[pageIndex];
-        this.setState(this.state);
     }
 
     render() {
