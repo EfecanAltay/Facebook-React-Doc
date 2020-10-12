@@ -13,7 +13,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
       - name: Running
-        run: npm install &  npm ci & npm run build
+        run: | 
+          set -exv 
+          npm install 
+          npm ci
+          npm run build
       - name: Deploying
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
