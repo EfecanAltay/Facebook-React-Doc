@@ -4,16 +4,16 @@ import NoPage from '../pages/NoPage';
 
 export class PageController extends React.Component {
 
+    CurrentPage: BasePage;
     state: {
-        PageList: Array<BasePage>,
-        CurrentPage: BasePage;
+        PageList : Array<BasePage>
     }
-
+    public PageList : Array<BasePage> ;
     constructor(props: {}) {
         super(props);
+        this.CurrentPage = null;
         this.state = {
-            PageList: new Array<BasePage>(),
-            CurrentPage: null
+            PageList : new Array<BasePage>()
         };
     }
 
@@ -22,13 +22,13 @@ export class PageController extends React.Component {
     }
 
     SelectPage(pageIndex: number) {
-        this.state.CurrentPage = this.state.PageList[pageIndex];
+        this.CurrentPage = this.state.PageList[pageIndex];
         this.setState(this.state);
     }
 
     render() {
-        if (this.state.CurrentPage != null)
-            return this.state.CurrentPage.PageRender();
+        if (this.CurrentPage != null)
+            return this.CurrentPage.PageRender();
         return (<NoPage/>);
     }
 }

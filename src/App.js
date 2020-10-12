@@ -4,7 +4,6 @@ import { SideBar } from './sections/sidebar';
 import Topbar from './sections/topbar';
 import { PageController } from './Controllers/PageController';
 import WelcomePage from './pages/WelcomePage';
-import { Button } from '@blueprintjs/core';
 import GetStartedPage from './pages/GetStartedPage';
 
 export class App extends React.Component{

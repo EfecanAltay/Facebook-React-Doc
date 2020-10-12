@@ -18,7 +18,7 @@ export class SideBar extends React.Component {
         return (
             <div className="sidebar">
                 <Callout className="header" title="Reactive" >
-                    <img className="icon" src="../logo192.png"></img>
+                    <img className="icon" src="../logo192.png" alt="reactive_logo"></img>
                     <p>Native Learning Platform</p>
                 </Callout>
                 <Tree
